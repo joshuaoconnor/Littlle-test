@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First GitHub Pages Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Main container for the app -->
+    <div class="bg-white p-8 rounded-2xl shadow-xl max-w-sm w-full text-center">
+        <!-- Main heading -->
+        <h1 id="main-heading" class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
+            Hello, GitHub!
+        </h1>
+        
+        <!-- Interactive button -->
+        <button id="color-button" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
+            Click Me!
+        </button>
+
+        <!-- A small note at the bottom -->
+        <p class="mt-4 text-sm text-gray-500">
+            This is your first deployed app. You did it!
+        </p>
+    </div>
+
+    <!-- JavaScript to add interactivity -->
+    <script>
+        const button = document.getElementById('color-button');
+        const heading = document.getElementById('main-heading');
+        const colors = ['text-red-500', 'text-green-500', 'text-blue-500', 'text-purple-500', 'text-gray-800'];
+        let currentColorIndex = 0;
+
+        button.addEventListener('click', () => {
+            // Remove the old color class
+            heading.classList.remove(colors[currentColorIndex]);
+
+            // Move to the next color in the array
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+
+            // Add the new color class
+            heading.classList.add(colors[currentColorIndex]);
+        });
+    </script>
+</body>
+</html>
